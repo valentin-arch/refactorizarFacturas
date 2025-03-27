@@ -81,11 +81,10 @@ function obtenerArticulos($clubTop, $purchaseId) {
 } 
 
 // Conectar a las bases de datos
-$host = '192.168.10.204';
 $username = 'desarrollo';
 $password = 'desarrollosoporte975';
-$clubTop = conectarDB($host, $username, $password, 'clubtop');
-$facturacion = conectarDB($host, $username, $password, 'facturacion');
+$clubTop = conectarDB('192.168.10.204', $username, $password, 'clubtop');
+$facturacion = conectarDB('192.168.10.204', $username, $password, 'facturacion');
 
 // Tomar los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
