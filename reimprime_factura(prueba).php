@@ -268,8 +268,8 @@ if (file_exists("archivos/temporales/art.txt")) {
     <div class="col-md-8 col-sm-8 col-xs-12">
     <div class="well text-center">
     <center><h2><font style='font-variant:small-caps;' >Reimpresión de Comprobantes</font></h2></center><hr>
+</div>
 
-    
 <?php
 if (!isset($_SESSION['logged_in'])) {
 	  header('Location: index.php');
@@ -290,7 +290,7 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					</div>';
 		require_once 'templates/footer.php';
-		
+
 function facturaA($black, $fontRegular, $fontBlack, $datos) {
 	$path = "src/utils/";
 	$plantilla = imagecreatefromjpeg($path . "plantillaARe.jpg");
@@ -396,7 +396,7 @@ function descrA($black, $fontRegular, $fontBlack, $suc, $fecha, $pv, $nroFact, $
         }
     }
 
-    // Paginación e impresión
+    // php Paginación e impresión
     $pages = ceil(count($ticketArray) / 38);
     $renglon = 587;
     $page = 1;
@@ -431,101 +431,102 @@ function descrA($black, $fontRegular, $fontBlack, $suc, $fecha, $pv, $nroFact, $
     return [$plantilla, $page];
 }
 
-function descrB($black, $fontRegular, $fontBlack, $suc, $fecha) {
-
-	$ventas = new mysqli("super-imperio.com.ar", "", "", "ventas");
-	$plantilla = imagecreatefromjpeg("factura.jpg");
-	
-	$commFile = fopen("archivos/temporales/art.txt", "r");
-	$ticketArray = array();
-	while (($reg = fgets($commFile)) !== false) {
-		echo $reg;echo "<BR>";
-		$article = substr($reg, 6,6);
-		$amount = substr($reg, 25,5);
-		$price = substr($reg, 30,10);
-
-		$espromo = strpos($article, "P");
-
-		if ($espromo === FALSE) {
-
-			if ($article < 10000) {
-				$sql = "SELECT `descripcion`, `codigo` FROM `articulos` WHERE `codigo_corto` = $article ORDER BY `codigo` ASC";
-			}
-			else {
-				$sql = "SELECT `descripcion` FROM `articulos` WHERE `codigo` = $article ORDER BY `codigo` ASC";
-			}
-
-			$query = $ventas->query($sql);
-			$query = $query->fetch_assoc();
-			$des = $query['descripcion'];
-			if (isset($query['codigo'])) {
-				$article = $query['codigo'];
-			}
-		}else{
-			
-			$des = "DESCUENTO x PROMOCION";
-		}
-		
-		if ($espromo === FALSE) {
-			$sql = "SELECT `porkg`, `iva`, `precio` FROM `historicos` WHERE `sucursal` = $suc AND `codigo` = $article AND `fecha` = '$fecha' ORDER BY `id` DESC";
-			$query = $ventas->query($sql);
-			$query = $query->fetch_assoc();
-			$med = $query['porkg'];
-			$priceUnit = $query['precio'];
-			if ($med == 1) {
-				$amount = $price /  $priceUnit;
-			}
-			$alic = $query['iva'];
-			$alic = $alic / 100;
-		}else{
-				$priceUnit = "-";
-			}
-		
-		if (empty($ticketArray[$article])) {
-		
-			$ticketArray[$article] = array($amount, $price, $priceUnit, $med, $alic, $des);
-		} else {
-		
-			$ticketArray[$article][0] += $amount;
-			$ticketArray[$article][1] += floatval($price);
-		}
-
-	}
-
-	$pages = ceil(count($ticketArray) / 45);
-	$renglon = 587;
-	$page = 1;
-	imagettftext($plantilla, 13, 0, 600, 1700, $black, $fontBlack, "Pag. $page/$pages");
-    foreach ($ticketArray as $key => $datos) {
-    	if ($renglon > (585 + 37*24)) {
-    		imagejpeg($plantilla, "factura0$page.jpg");
-    		$plantilla = imagecreatefromjpeg("factura.jpg");
-    		$renglon = 587;
-    		$page++;
-    		imagettftext($plantilla, 13, 0, 600, 1700, $black, $fontBlack, "Pag. $page/$pages");
-    	}
-    	imagettftext($plantilla, 11, 0, 45, $renglon, $black, $fontRegular, $key);
-		imagettftext($plantilla, 11, 0, 122, $renglon, $black, $fontRegular, $datos[5]);
-		imagettftext($plantilla, 12, 0, 530, $renglon, $black, $fontRegular, number_format($datos[0], 2, ".", ""));
-		if ($datos[3] == 0) {
-			imagettftext($plantilla, 12, 0, 600, $renglon, $black, $fontRegular, "unidades");
-		}
-		else {
-			imagettftext($plantilla, 12, 0, 600, $renglon, $black, $fontRegular, "Kgr.");	
-		}
-		imagettftext($plantilla, 12, 0, 720, $renglon, $black, $fontRegular, number_format($datos[2], 2, ",", ""));
-		imagettftext($plantilla, 12, 0, 820, $renglon, $black, $fontRegular, "0,00");
-		imagettftext($plantilla, 12, 0, 920, $renglon, $black, $fontRegular, "0,00");
-		//imagettftext($plantilla, 12, 0, 920, $renglon, $black, $fontRegular, number_format($datos[2], 2, ",", ""));
-		imagettftext($plantilla, 12, 0, 1100, $renglon, $black, $fontRegular, number_format($datos[1], 2, ",", ""));
-		
-		$_SESSION['totalArts']+=$datos[1];
-		
-
-		$renglon += 20;
+function descrB($black, $fontRegular, $fontBlack, $suc, $fecha, $pv, $nroFact, $tipoFact, $facturacion, $clubTop) {
+    // Obtener los datos de la factura desde la base de datos
+    $factura = obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc);
+    if (!$factura) {
+        die("<p style='color: red;'> No se encontró la factura.</p>");
     }
 
-	return array($plantilla, $page);
+    // Obtener el ID de la compra
+    $purchaseId = obtenerIdCompra($clubTop, $pv, $nroFact);
+    if (!$purchaseId) {
+        die("<p style='color: red;'> No se encontró la compra asociada.</p>");
+    }
+
+    // Obtener los artículos asociados
+    $articulos = obtenerArticulos($clubTop, $purchaseId);
+    $ticketArray = [];
+
+    foreach ($articulos as $articulo) {
+        $codigo = $articulo['codigo'];
+        $cantidad = floatval($articulo['cantidad']);
+        $precio = floatval($articulo['precio']);
+        
+        $espromo = strpos($codigo, "P") !== false;
+        
+        if ($espromo) {
+            $descripcion = "DESCUENTO x PROMOCION";
+            $porkg = 0;
+            $iva = 0.21;
+            $precioUnit = $precio / max($cantidad, 1);
+        } else {
+            $sql = ($codigo < 10000) ?
+                "SELECT descripcion, codigo FROM articulos WHERE codigo_corto = ? ORDER BY codigo ASC" :
+                "SELECT descripcion FROM articulos WHERE codigo = ? ORDER BY codigo ASC";
+
+            $stmt = $facturacion->prepare($sql);
+            $stmt->bind_param("i", $codigo);
+            $stmt->execute();
+            $resultado = $stmt->get_result()->fetch_assoc();
+            $descripcion = $resultado['descripcion'] ?? "SIN DESCRIPCIÓN";
+            $codigo = $resultado['codigo'] ?? $codigo;
+
+            $sqlHist = "SELECT porkg, iva, precio FROM historicos WHERE sucursal = ? AND codigo = ? AND fecha = ? ORDER BY id DESC";
+            $stmt = $facturacion->prepare($sqlHist);
+            $stmt->bind_param("iis", $suc, $codigo, $fecha);
+            $stmt->execute();
+            $resultadoHist = $stmt->get_result()->fetch_assoc();
+
+            $porkg = $resultadoHist['porkg'] ?? 0;
+            $precioUnit = $resultadoHist['precio'] ?? $precio;
+            $iva = ($resultadoHist['iva'] ?? 21) / 100;
+
+            if ($porkg) {
+                $cantidad = $precio / $precioUnit;
+            }
+        }
+
+        if (!isset($ticketArray[$codigo])) {
+            $ticketArray[$codigo] = [$cantidad, $precio, $precioUnit, $porkg, $iva, $descripcion];
+        } else {
+            $ticketArray[$codigo][0] += $cantidad;
+            $ticketArray[$codigo][1] += $precio;
+        }
+    }
+
+    // Paginación e impresión
+    $pages = ceil(count($ticketArray) / 38);
+    $renglon = 587;
+    $page = 1;
+    $plantilla = imagecreatefromjpeg("factura.jpg");
+    imagettftext($plantilla, 13, 0, 600, 1700, $black, $fontBlack, "Pag. $page/$pages");
+
+    foreach ($ticketArray as $codigo => $datos) {
+        if ($renglon > (585 + 31 * 24)) {
+            imagejpeg($plantilla, "factura0$page.jpg");
+            $plantilla = imagecreatefromjpeg("factura.jpg");
+            $renglon = 587;
+            $page++;
+            imagettftext($plantilla, 13, 0, 600, 1700, $black, $fontBlack, "Pag. $page/$pages");
+        }
+
+        imagettftext($plantilla, 11, 0, 45, $renglon, $black, $fontRegular, $codigo);
+        imagettftext($plantilla, 11, 0, 122, $renglon, $black, $fontRegular, $datos[5]);
+        imagettftext($plantilla, 12, 0, 530, $renglon, $black, $fontRegular, number_format($datos[0], 2, ".", ""));
+        imagettftext($plantilla, 12, 0, 600, $renglon, $black, $fontRegular, $datos[3] ? "Kgr." : "unidades");
+        imagettftext($plantilla, 12, 0, 720, $renglon, $black, $fontRegular, number_format($datos[2], 2, ",", ""));
+        imagettftext($plantilla, 12, 0, 820, $renglon, $black, $fontRegular, "0,00");
+        
+        $subtotal = $datos[1] / (1 + $datos[4]);
+        imagettftext($plantilla, 12, 0, 920, $renglon, $black, $fontRegular, number_format($subtotal, 2, ",", ""));
+        imagettftext($plantilla, 12, 0, 1020, $renglon, $black, $fontRegular, number_format($datos[4] * 100, 2, ",", ""));
+        imagettftext($plantilla, 12, 0, 1100, $renglon, $black, $fontRegular, number_format($datos[1], 2, ",", ""));
+
+        $_SESSION['totalArts'] += $datos[1];
+        $renglon += 20;
+	}
+
 }
 
 ?>
