@@ -5,8 +5,8 @@ ob_start();
 session_start();
 
 include "src/utils/phpqrcode/qrlib.php";
-$_SESSION['totalArts']=0;
-$_SESSION['totalfactura']=0;
+$_SESSION['totalArts'] = 0;
+$_SESSION['totalfactura'] = 0;
 date_default_timezone_set('America/Argentina/Cordoba');
 
 //Funciones
@@ -18,13 +18,23 @@ $facturacion = conectarDB('192.168.10.204', $username, $password, 'facturacion')
 
 // Obtener datos de la factura
 function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
+    
+    // Convertir fecha de yyyymmdd a yyyy-mm-dd
+    $fechaObj = DateTime::createFromFormat('Ymd', $fecha);
+    if (!$fechaObj) {
+        throw new Exception("Formato de fecha inválido: $fecha");
+    }
+
+    $fechaFormat = $fechaObj->format('Y-m-d');
+
+
     $sql = "SELECT pv, nro_comprobante, fecha, sucursal, tipo_factura, 
                 nro_documento, cae, vto_cae, neto, exento, iva_105, iva_21, total_iva, total 
                 FROM facturas_afip 
                 WHERE pv = ? AND nro_comprobante = ? AND fecha = ? AND sucursal = ? AND tipo_factura = ?";
     
     echo "Consultando con los siguientes valores: ";
-    echo "pv = $pv, nroFact = $nroFact, fecha = $fecha, suc = $suc, tipoFact = $tipoFact";
+    echo "pv = $pv, nroFact = $nroFact, fecha = $fechaFormat, suc = $suc, tipoFact = $tipoFact";
 
     $stmt = $facturacion->prepare($sql);
 
@@ -33,7 +43,7 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
     }
 
     // Tipos de datos correctos
-    $stmt->bind_param("iisii", $pv, $nroFact, $fecha, $suc, $tipoFact);
+    $stmt->bind_param("iisii", $pv, $nroFact, $fechaFormat, $suc, $tipoFact);
     $stmt->execute();
     
     $result = $stmt->get_result();
@@ -93,6 +103,9 @@ if (file_exists("archivos/temporales/art.txt")) {
 	$ptoVta = 413;
 	$nroFact = 120233;
 
+        $factura = obtenerFactura($facturacion, $tipo, $ptoVta, $nroFact, $fecha, $suc);
+        $cae = $factura['cae'];
+        $vtoCae = $factura['vto_cae'];
 	
 		$archivo_caja = fopen("archivos/temporales/fact.txt", "r");
 		$datos = fgets($archivo_caja);
@@ -148,11 +161,11 @@ if (file_exists("archivos/temporales/art.txt")) {
 		imagettftext($plantilla, 14, 0, 210, 483, $black, $fontRegular, "Cuenta Corriente");
 
 		if (substr($datos, 164, 1) == "0") {
-			imagettftext($plantilla, 15, 0, 910, 1671, $black, $fontBlack,("CAE N°: ". substr($datos, 165, 14)));
-			imagettftext($plantilla, 15, 0, 780, 1700, $black, $fontBlack,("Fecha de Vto. de CAE: ". substr($datos, 179, 10)));
+			imagettftext($plantilla, 15, 0, 910, 1671, $black, $fontBlack,("CAE N°: ". $cae));
+			imagettftext($plantilla, 15, 0, 780, 1700, $black, $fontBlack,("Fecha de Vto. de CAE: ". $vtoCae));
 		} else {
-			imagettftext($plantilla, 15, 0, 900, 1671, $black, $fontBlack,("CAEA N°: ". substr($datos, 165, 14)));
-			imagettftext($plantilla, 15, 0, 770, 1700, $black, $fontBlack,("Fecha de Vto. de CAEA: ". substr($datos, 179, 10)));
+			imagettftext($plantilla, 15, 0, 900, 1671, $black, $fontBlack,("CAEA N°: ". $cae));
+			imagettftext($plantilla, 15, 0, 770, 1700, $black, $fontBlack,("Fecha de Vto. de CAEA: ". $vtoCae));
 		}
 
 
@@ -181,7 +194,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		$merge = "pdfunite ";
 		$deleteFiles = "rm factura.jpg ";
 
-		for ($i=1; $i <= $return[1]; $i++) { 
+		for ($i=1; $i <= $return[1]; $i++) {
 
 			shell_exec("convert factura0$i.jpg factura0$i.pdf");
 		//	sleep(10);
@@ -198,7 +211,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		}
 		
 		shell_exec($merge);
-		shell_exec($deleteFiles);	
+		shell_exec($deleteFiles);
 
 		$id_archivo = NULL;
 
@@ -252,8 +265,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 				<script type="text/javascript">
 				window.location.href ="/reimprime_factura.php";
 				</script>';
-	}else{
-
+    } else {
 		require_once 'templates/header.php';
 		require_once 'config.php';
 		require_once 'funciones.php';
@@ -262,6 +274,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 	}
 
 ?>
+
 <link href="css/botones.css" rel="stylesheet">
 <div class="content">
     <div class="container">
@@ -291,11 +304,11 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>';
 		require_once 'templates/footer.php';
 
-function facturaA($black, $fontRegular, $fontBlack, $datos) {
+function facturaA($black, $fontRegular, $fontBlack, $datos, $factura) {
 	$path = "src/utils/";
 	$plantilla = imagecreatefromjpeg($path . "plantillaARe.jpg");
 	imagettftext($plantilla, 40, 0, 602, 150, $black, $fontBlack, "A");
-	$neto = substr($datos, 114, 10) + substr($datos, 134, 10);
+	$neto = $factura['neto'];
 	imagettftext($plantilla, 14, 0, 1058, 1385, $black, $fontBlack, number_format($neto, 2, ",", ""));
 	imagettftext($plantilla, 14, 0, 1058, 1412, $black, $fontBlack, "0,00");
 	imagettftext($plantilla, 14, 0, 1058, 1439, $black, $fontBlack, number_format(substr($datos, 104, 10), 2, ",", ""));
@@ -312,16 +325,16 @@ function facturaA($black, $fontRegular, $fontBlack, $datos) {
 	imagettftext($plantilla, 14, 0, 1058, 1575, $black, $fontBlack, "0,00");
 	imagettftext($plantilla, 15, 0, 1058, 1605, $black, $fontBlack, number_format(substr($datos, 84, 10), 2, ",", ""));
 
-	$_SESSION['totalfactura']=substr($datos, 84, 10);
+	$_SESSION['totalfactura'] = substr($datos, 84, 10);
 	return $plantilla;
 
 }
 
-function facturaB($black, $fontRegular, $fontBlack, $datos) {
+function facturaB($black, $fontRegular, $fontBlack, $datos, $factura) {
 	$path = "src/utils/";
 	$plantilla = imagecreatefromjpeg($path . "plantillaBRe.jpg");
 	imagettftext($plantilla, 40, 0, 602, 150, $black, $fontBlack, "B");
-	$neto = substr($datos, 114, 10) + substr($datos, 134, 10);
+	$neto = $factura['neto'];
 	imagettftext($plantilla, 14, 0, 1050, 1510, $black, $fontBlack, number_format(substr($datos, 84, 10), 2, ",", ""));
 	//imagettftext($plantilla, 14, 0, 1050, 1510, $black, $fontBlack, number_format($neto, 2, ",", ""));
 	imagettftext($plantilla, 14, 0, 1050, 1550, $black, $fontBlack, "0,00");
