@@ -311,8 +311,8 @@ function facturaA($black, $fontRegular, $fontBlack, $datos, $factura) {
 	$neto = $factura['neto'];
 	imagettftext($plantilla, 14, 0, 1058, 1385, $black, $fontBlack, number_format($neto, 2, ",", ""));
 	imagettftext($plantilla, 14, 0, 1058, 1412, $black, $fontBlack, "0,00");
-	imagettftext($plantilla, 14, 0, 1058, 1439, $black, $fontBlack, number_format(substr($datos, 104, 10), 2, ",", ""));
-	imagettftext($plantilla, 14, 0, 1058, 1466, $black, $fontBlack, number_format(substr($datos, 124, 10), 2, ",", ""));
+	imagettftext($plantilla, 14, 0, 1058, 1439, $black, $fontBlack, number_format($factura['iva_21'], 2, ",", ""));
+	imagettftext($plantilla, 14, 0, 1058, 1466, $black, $fontBlack, number_format($factura['iva_105'], 2, ",", ""));
 	imagettftext($plantilla, 14, 0, 1058, 1493, $black, $fontBlack, "0,00");
 	imagettftext($plantilla, 14, 0, 1058, 1520, $black, $fontBlack, "0,00");
 	imagettftext($plantilla, 14, 0, 1058, 1547, $black, $fontBlack, "0,00");
@@ -323,7 +323,7 @@ function facturaA($black, $fontRegular, $fontBlack, $datos, $factura) {
 	imagettftext($plantilla, 13, 0, 680, 1515, $black, $fontRegular, "0,00");
 	imagettftext($plantilla, 15, 0, 650, 1547, $black, $fontRegular, "0,00");
 	imagettftext($plantilla, 14, 0, 1058, 1575, $black, $fontBlack, "0,00");
-	imagettftext($plantilla, 15, 0, 1058, 1605, $black, $fontBlack, number_format(substr($datos, 84, 10), 2, ",", ""));
+	imagettftext($plantilla, 15, 0, 1058, 1605, $black, $fontBlack, number_format($factura['total'], 2, ",", ""));
 
 	$_SESSION['totalfactura'] = substr($datos, 84, 10);
 	return $plantilla;
@@ -335,10 +335,10 @@ function facturaB($black, $fontRegular, $fontBlack, $datos, $factura) {
 	$plantilla = imagecreatefromjpeg($path . "plantillaBRe.jpg");
 	imagettftext($plantilla, 40, 0, 602, 150, $black, $fontBlack, "B");
 	$neto = $factura['neto'];
-	imagettftext($plantilla, 14, 0, 1050, 1510, $black, $fontBlack, number_format(substr($datos, 84, 10), 2, ",", ""));
+	imagettftext($plantilla, 14, 0, 1050, 1510, $black, $fontBlack, number_format($factura['neto'], 2, ",", ""));
 	//imagettftext($plantilla, 14, 0, 1050, 1510, $black, $fontBlack, number_format($neto, 2, ",", ""));
 	imagettftext($plantilla, 14, 0, 1050, 1550, $black, $fontBlack, "0,00");
-	imagettftext($plantilla, 15, 0, 1050, 1590, $black, $fontBlack, number_format(substr($datos, 84, 10), 2, ",", ""));
+	imagettftext($plantilla, 15, 0, 1050, 1590, $black, $fontBlack, number_format($factura['total'], 2, ",", ""));
 	
 	$_SESSION['totalfactura']=substr($datos, 84, 10);
 
