@@ -95,8 +95,7 @@ function obtenerArticulos($clubTop, $purchaseId) {
     return $articulos;
 }
 
-//if (file_exists("archivos/temporales/art.txt")) {
-if (file_exists("/home/usuario/Desktop/art.txt")) {
+if (file_exists("archivos/temporales/art.txt")) {
 
 	$suc = 1;
 	$fecha = "20230801";
