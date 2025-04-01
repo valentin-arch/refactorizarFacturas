@@ -103,6 +103,8 @@ if (file_exists("archivos/temporales/art.txt")) {
 	$ptoVta = 413;
 	$nroFact = 120233;
 
+        $login  = new mysqli("super-imperio.com.ar", "", "", "login");
+
         $factura = obtenerFactura($facturacion, $tipo, $ptoVta, $nroFact, $fecha, $suc);
         $cae = $factura['cae'];
         $vtoCae = $factura['vto_cae'];
@@ -111,7 +113,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		$datos = fgets($archivo_caja);
 		fclose($archivo_caja);
 
-		$login  = new mysqli("super-imperio.com.ar", "", "", "login");
+		//$login  = new mysqli("super-imperio.com.ar", "", "", "login");
 
 		$path = "src/utils/";
 		$matrixPointSize = 2;
@@ -170,7 +172,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 
 
 		$mensa_qr = "{'ver':1,'fecha':'" . substr($datos, 148,4) . "-" . substr($datos, 146,2) . "-" . substr($datos, 144,2) . "','cuit':30583747792,'ptoVta':" . substr($datos, 2,4) . ",'tipoCmp':" . $tipoFac . ",'importe':" . substr($datos, 85,10) . ",'moneda':'PES','ctz':1,'tipoDocRec':80,'nroDocRec':" . substr($datos, 70,11) . ",'tipoCodAut':'A','codAut':". substr($datos, 165, 14);
-		$texto_qr = "https://www.afip.gob.ar/fe/qr/?p=". base64_encode($mensa_qr); 
+		$texto_qr = "https://www.afip.gob.ar/fe/qr/?p=". base64_encode($mensa_qr);
 
 		QRcode::png($texto_qr, $path . "qr.png", $errorCorrectionLevel, $matrixPointSize, 2);    
 		$qr = imagecreatefrompng($path . "qr.png");
@@ -327,7 +329,6 @@ function facturaA($black, $fontRegular, $fontBlack, $datos, $factura) {
 
 	$_SESSION['totalfactura'] = substr($datos, 84, 10);
 	return $plantilla;
-
 }
 
 function facturaB($black, $fontRegular, $fontBlack, $datos, $factura) {
