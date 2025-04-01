@@ -20,13 +20,7 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
     
     echo "Consultando con los siguientes valores: ";
     echo "pv = $pv, nroFact = $nroFact, fecha = $fecha, suc = $suc, tipoFact = $tipoFact";
-
-    $stmt = $facturacion->prepare($sql);
-
-    if (!$stmt) {
-        throw new Exception("Error en la preparación de la consulta: " . $facturacion->error);
-    }
-
+    
     // Tipos de datos correctos
     $stmt->bind_param("iisii", $pv, $nroFact, $fecha, $suc, $tipoFact);
     $stmt->execute();
@@ -42,11 +36,6 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
 function obtenerIdCompra($clubTop, $pv, $nroFact) {
     $nro_comprobante = sprintf("%05d%08d", $pv, $nroFact);
     $sql = "SELECT id FROM purchases WHERE nro_ticket = ?";
-    $stmt = $clubTop->prepare($sql);
-    
-    if (!$stmt) {
-        throw new Exception("Error en la preparación de la consulta: " . $clubTop->error);
-    }
 
     $stmt->bind_param("i", $nro_comprobante);
     $stmt->execute();
@@ -58,11 +47,6 @@ function obtenerIdCompra($clubTop, $pv, $nroFact) {
 // Obtener artículos asociados a la compra
 function obtenerArticulos($clubTop, $purchaseId) {
     $sql = "SELECT article_cod, amount, price FROM tickets WHERE purchase_id = ?";
-    $stmt = $clubTop->prepare($sql);
-
-    if (!$stmt) {
-        throw new Exception("Error en la preparación de la consulta: " . $clubTop->error);
-    }
 
     $stmt->bind_param("i", $purchaseId);
     $stmt->execute();
@@ -81,10 +65,13 @@ function obtenerArticulos($clubTop, $purchaseId) {
 } 
 
 // Conectar a las bases de datos
+$host = '192.168.10.204';
 $username = 'desarrollo';
 $password = 'desarrollosoporte975';
-$clubTop = conectarDB('192.168.10.204', $username, $password, 'clubtop');
-$facturacion = conectarDB('192.168.10.204', $username, $password, 'facturacion');
+$dbname = 'clubtop';
+$dbname2 = 'facturacion';
+$clubTop = conectarDB($host, $username, $password, $dbname);
+$facturacion = conectarDB($host, $username, $password, $dbname2);
 
 // Tomar los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

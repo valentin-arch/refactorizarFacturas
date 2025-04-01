@@ -10,11 +10,13 @@ $_SESSION['totalfactura'] = 0;
 date_default_timezone_set('America/Argentina/Cordoba');
 
 //Funciones
-
+$host = '192.168.10.204';
 $username = 'desarrollo';
 $password = 'desarrollosoporte975';
-$clubTop = conectarDB('192.168.10.204', $username, $password, 'clubtop');
-$facturacion = conectarDB('192.168.10.204', $username, $password, 'facturacion');
+$dbname = 'clubtop';
+$dbname2 = 'facturacion';
+$clubTop = conectarDB($host, $username, $password, $dbname);
+$facturacion = conectarDB($host, $username, $password, $dbname2);
 
 // Obtener datos de la factura
 function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
@@ -27,7 +29,6 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
 
     $fechaFormat = $fechaObj->format('Y-m-d');
 
-
     $sql = "SELECT pv, nro_comprobante, fecha, sucursal, tipo_factura, 
                 nro_documento, cae, vto_cae, neto, exento, iva_105, iva_21, total_iva, total 
                 FROM facturas_afip 
@@ -35,12 +36,6 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
     
     echo "Consultando con los siguientes valores: ";
     echo "pv = $pv, nroFact = $nroFact, fecha = $fechaFormat, suc = $suc, tipoFact = $tipoFact";
-
-    $stmt = $facturacion->prepare($sql);
-
-    if (!$stmt) {
-        throw new Exception("Error en la preparación de la consulta: " . $facturacion->error);
-    }
 
     // Tipos de datos correctos
     $stmt->bind_param("iisii", $pv, $nroFact, $fechaFormat, $suc, $tipoFact);
@@ -57,11 +52,6 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
 function obtenerIdCompra($clubTop, $pv, $nroFact) {
     $nro_comprobante = sprintf("%05d%08d", $pv, $nroFact);
     $sql = "SELECT id FROM purchases WHERE nro_ticket = ?";
-    $stmt = $clubTop->prepare($sql);
-    
-    if (!$stmt) {
-        throw new Exception("Error en la preparación de la consulta: " . $clubTop->error);
-    }
 
     $stmt->bind_param("i", $nro_comprobante);
     $stmt->execute();
@@ -73,11 +63,6 @@ function obtenerIdCompra($clubTop, $pv, $nroFact) {
 // Obtener artículos asociados a la compra
 function obtenerArticulos($clubTop, $purchaseId) {
     $sql = "SELECT article_cod, amount, price FROM tickets WHERE purchase_id = ?";
-    $stmt = $clubTop->prepare($sql);
-
-    if (!$stmt) {
-        throw new Exception("Error en la preparación de la consulta: " . $clubTop->error);
-    }
 
     $stmt->bind_param("i", $purchaseId);
     $stmt->execute();
@@ -170,7 +155,6 @@ if (file_exists("archivos/temporales/art.txt")) {
 			imagettftext($plantilla, 15, 0, 770, 1700, $black, $fontBlack,("Fecha de Vto. de CAEA: ". $vtoCae));
 		}
 
-
 		$mensa_qr = "{'ver':1,'fecha':'" . substr($datos, 148,4) . "-" . substr($datos, 146,2) . "-" . substr($datos, 144,2) . "','cuit':30583747792,'ptoVta':" . substr($datos, 2,4) . ",'tipoCmp':" . $tipoFac . ",'importe':" . substr($datos, 85,10) . ",'moneda':'PES','ctz':1,'tipoDocRec':80,'nroDocRec':" . substr($datos, 70,11) . ",'tipoCodAut':'A','codAut':". substr($datos, 165, 14);
 		$texto_qr = "https://www.afip.gob.ar/fe/qr/?p=". base64_encode($mensa_qr);
 
@@ -211,7 +195,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		if ($return[1] == 1) {
 			$merge = "cp factura01.pdf " . getcwd() . "/archivos/mensajes/facturacion/". $nombre;
 		}
-		
+
 		shell_exec($merge);
 		shell_exec($deleteFiles);
 
@@ -224,7 +208,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 
 		imagedestroy($qr);
 		imagedestroy($plantilla);
-		
+
 		if (round(floatval($_SESSION['totalArts']),2) == round(floatval($_SESSION['totalfactura']),2) ) {
 			//tengo que enviar mensaje interno con el id del arhivo
 		
@@ -255,7 +239,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 				$sql = "INSERT INTO mensajesinternos (id_origen, id_destino, id_cc, asunto, mensaje, id_archivo, creacion)
 				  VALUES ($id_origen, $id_destino, '', '$textoAsunto', '$textoMensaje', '$id_archivo', CURRENT_TIMESTAMP )";
 				$login->query($sql);
-			
+
 				aviso("Comprobante reimpreso Correctamente");
 			}else{
 
@@ -290,10 +274,9 @@ if (!isset($_SESSION['logged_in'])) {
 	  header('Location: index.php');
 	}
 
-		
 	echo '<center><div class="okay_bbc"><b>Debe subir dos archivos:</b> <hr>
       <b>fact.txt</b> que debe contener solo la linea correspondiente al comprobante.<br>
-      <b>art.txt</b> que debe contener articulos relacionados al comprobante. 
+      <b>art.txt</b> que debe contener articulos relacionados al comprobante.
         </div>
         <form enctype="multipart/form-data" action="upload.php" method="POST">
     	<input id="archivo[]" name="archivo[]" multiple="" type="file" />
@@ -340,7 +323,7 @@ function facturaB($black, $fontRegular, $fontBlack, $datos, $factura) {
 	//imagettftext($plantilla, 14, 0, 1050, 1510, $black, $fontBlack, number_format($neto, 2, ",", ""));
 	imagettftext($plantilla, 14, 0, 1050, 1550, $black, $fontBlack, "0,00");
 	imagettftext($plantilla, 15, 0, 1050, 1590, $black, $fontBlack, number_format($factura['total'], 2, ",", ""));
-	
+
 	$_SESSION['totalfactura']=substr($datos, 84, 10);
 
 	return $plantilla;
@@ -367,9 +350,9 @@ function descrA($black, $fontRegular, $fontBlack, $suc, $fecha, $pv, $nroFact, $
         $codigo = $articulo['codigo'];
         $cantidad = floatval($articulo['cantidad']);
         $precio = floatval($articulo['precio']);
-        
+
         $espromo = strpos($codigo, "P") !== false;
-        
+
         if ($espromo) {
             $descripcion = "DESCUENTO x PROMOCION";
             $porkg = 0;
@@ -466,9 +449,9 @@ function descrB($black, $fontRegular, $fontBlack, $suc, $fecha, $pv, $nroFact, $
         $codigo = $articulo['codigo'];
         $cantidad = floatval($articulo['cantidad']);
         $precio = floatval($articulo['precio']);
-        
+
         $espromo = strpos($codigo, "P") !== false;
-        
+
         if ($espromo) {
             $descripcion = "DESCUENTO x PROMOCION";
             $porkg = 0;
@@ -531,7 +514,7 @@ function descrB($black, $fontRegular, $fontBlack, $suc, $fecha, $pv, $nroFact, $
         imagettftext($plantilla, 12, 0, 600, $renglon, $black, $fontRegular, $datos[3] ? "Kgr." : "unidades");
         imagettftext($plantilla, 12, 0, 720, $renglon, $black, $fontRegular, number_format($datos[2], 2, ",", ""));
         imagettftext($plantilla, 12, 0, 820, $renglon, $black, $fontRegular, "0,00");
-        
+
         $subtotal = $datos[1] / (1 + $datos[4]);
         imagettftext($plantilla, 12, 0, 920, $renglon, $black, $fontRegular, number_format($subtotal, 2, ",", ""));
         imagettftext($plantilla, 12, 0, 1020, $renglon, $black, $fontRegular, number_format($datos[4] * 100, 2, ",", ""));
