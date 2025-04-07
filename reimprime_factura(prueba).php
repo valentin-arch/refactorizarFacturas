@@ -56,7 +56,7 @@ function obtenerIdCompra($clubTop, $pv, $nroFact) {
     $stmt->bind_param("i", $nro_comprobante);
     $stmt->execute();
     $stmt->bind_result($id);
-    
+
     return $stmt->fetch() ? $id : null;
 }
 
