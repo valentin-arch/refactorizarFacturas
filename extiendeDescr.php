@@ -12,6 +12,7 @@
  *   ]
  * ]
  */
+
 function cargarDiccionarioDesdeCSV($archivo) {
     $diccionario = [];
 
@@ -59,6 +60,7 @@ function cargarDiccionarioDesdeCSV($archivo) {
  * @param array $nombresCompletos Lista de nombres completos.
  * @return string Descripción modificada.
  */
+
 function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
     // Separar palabras manteniendo puntos y slashes en los tokens
     preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
@@ -82,7 +84,6 @@ function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos
     return implode(" ", $tokens); // Reconstruir la cadena con espacios entre palabras
 }
 
-
 function tokenizarDescripcion($descripcion) {
     return preg_split('/(?=[\.\/ ])/', $descripcion, -1, PREG_SPLIT_NO_EMPTY);
 }
@@ -98,7 +99,7 @@ function reemplazarMarca($descripcion, $marcas, $codigo) {
     }
 
     $marca_correcta = $marcas[$codigo];
-    
+
     $tokens = tokenizarDescripcion($descripcion);
     $mejor_match = "";
     $mejor_similitud = 0;
@@ -116,7 +117,7 @@ function reemplazarMarca($descripcion, $marcas, $codigo) {
                 }
             }
         }
-        
+
         $descripcion = str_replace($mejor_match, $marca_correcta, $descripcion);
         return $descripcion;
     }
