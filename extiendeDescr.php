@@ -129,8 +129,8 @@ $archivoCSV = "diccionarioDescr.csv";
 // Cargar el diccionario
 $diccionario = cargarDiccionarioDesdeCSV($archivoCSV);
 
-$baseTop = new mysqli("Server", "usuario", "clave", "tabla");
-$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1'" ;
+$baseTop = new mysqli('192.168.10.204', 'desarrollo', 'desarrollosoporte975', 'ventas');
+$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '2'" ;
 $result = $baseTop->query($sql);
 $productos = array();
 while($resultado = $result->fetch_assoc()){
