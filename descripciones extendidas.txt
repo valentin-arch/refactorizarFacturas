@@ -1,0 +1,50 @@
+Codigo: 112049 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. BDO. COCOx120GR
+Codigo: 112052 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. BDO. YEMA FRUTx120GR
+Codigo: 112067 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI MIELx80GR
+Codigo: 112086 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORG. CROC. MANIx80GR
+Codigo: 112087 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. ALMENDRAS Bx90GR
+Codigo: 112134 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMESANO MANIx80GR
+Codigo: 112137 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMESANO MANIx150GR
+Codigo: 112143 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. MANI MIELx120GR
+Codigo: 112147 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. MANI FRUTx120GR
+Codigo: 112156 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI MIELx120GR
+Codigo: 112360 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI FRUTAx120GR
+Codigo: 112366 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI CHOCx90GR
+Codigo: 112368 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. BDO. MANI YEMAx120GR
+Codigo: 112374 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI MIEL CHx90GR
+Codigo: 161100 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORG. CHOC. ALMENDRAx100GR
+Codigo: 161108 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORG. CREM. CATALANAx100GR
+Codigo: 161131 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI BDO. YEMA PALMESx100GR
+Codigo: 161132 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI BDO. FTA PALMESAx100GR
+Codigo: 161134 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON BDO. PALM. YEM CAC FRUx100GR
+Codigo: 161136 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI PALME. CIR. OPORTx100GR
+Codigo: 161137 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI PALM. COCO BDO. x100GR
+Codigo: 161138 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALM. YEMA ALMEN. TOSTx100GR
+Codigo: 161139 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALM. ALMEN. FRUT. RJAx100GR
+Codigo: 161140 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. ALMENDRASx120GR
+Codigo: 161145 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI YEMAx100GR
+Codigo: 161147 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANIx80GR
+Codigo: 161148 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANIx120GR
+Codigo: 161149 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANIx280GR
+Codigo: 161150 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI C FRUTAx80GR
+Codigo: 161152 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI C FRUTx120GR
+Codigo: 161153 | Rubro: 1 | Subrubro: 61 | Descripcion: CROCANTE ARCOR MANIx80GR
+Codigo: 161154 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI C MIELx120GR
+Codigo: 161180 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. MANI C CERx100GR
+Codigo: 161202 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORGALOS MOUSE DDLx100GR
+Codigo: 161203 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS FR. SECOSx95GR
+Codigo: 161204 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C CACAOx90GR
+Codigo: 161205 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C DDLx90GR
+Codigo: 161206 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C CHOCOLx90GR
+Codigo: 161207 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C ALMENDx90GR
+Codigo: 161208 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE ARCOR TRIFLE CHOCx160GR
+Codigo: 161210 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE AGUILA MOUSSEx160GR
+Codigo: 161218 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BONx220GR
+Codigo: 161220 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BON TENTACIONx260GR
+Codigo: 161233 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BON TRADIC. x95GR
+Codigo: 161234 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BON TENTACIONx120GR
+Codigo: 161238 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMESANO MANIx280GR
+Codigo: 161239 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ALM ALIC. ARCORx100GR
+Codigo: 161240 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ALM AL. CAC. ARCORx100GR
+Codigo: 161241 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON CRANBERRIES ARCORx100GR
+Codigo: 162039 | Rubro: 1 | Subrubro: 61 | Descripcion: CROCANTE ALMENDRAS PALMESANOx100GR
