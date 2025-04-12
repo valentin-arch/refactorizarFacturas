@@ -61,18 +61,44 @@ function cargarDiccionarioDesdeCSV($archivo) {
  * @return string Descripción modificada.
  */
 
-function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
+//function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
     // Separar palabras manteniendo puntos y slashes en los tokens
+//    preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
+//    $tokens = $matches[0];
+
+//    $palabraIndex = 0;
+//    for ($i = 0; $i < count($tokens); $i++) {
+//        if ($palabraIndex < 3) { // Solo modificar las dos primeras palabras reales
+//            foreach ($abreviaciones as $index => $abrev) {
+//                similar_text($tokens[$i], $abrev, $porcentaje);
+//                echo $tokens[$i] . " - " . $abrev . " - " . $porcentaje . "\n";
+//                if ($porcentaje >= 75) { //originalmente estaba en 75%
+//                    $tokens[$i] = $nombresCompletos[$index];
+//                    break;
+//                }
+//            }
+//            $palabraIndex++;
+//        }
+//    }
+
+//    return implode(" ", $tokens); // Reconstruir la cadena con espacios entre palabras
+//}
+
+function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
     preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
     $tokens = $matches[0];
 
     $palabraIndex = 0;
     for ($i = 0; $i < count($tokens); $i++) {
-        if ($palabraIndex < 3) { // Solo modificar las dos primeras palabras reales
+        if ($palabraIndex < 3) {
             foreach ($abreviaciones as $index => $abrev) {
-                similar_text($tokens[$i], $abrev, $porcentaje);
-                echo $tokens[$i] . " - " . $abrev . " - " . $porcentaje . "\n";
-                if ($porcentaje >= 75) { //originalmente estaba en 75%
+                $longToken = strlen($tokens[$i]);
+
+                // Umbral dinámico: si la palabra es muy corta, bajar el porcentaje
+                $umbral = ($longToken <= 3) ? 60 : 75;
+
+                similar_text(strtoupper($tokens[$i]), strtoupper($abrev), $porcentaje);
+                if ($porcentaje >= $umbral) {
                     $tokens[$i] = $nombresCompletos[$index];
                     break;
                 }
@@ -81,7 +107,7 @@ function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos
         }
     }
 
-    return implode(" ", $tokens); // Reconstruir la cadena con espacios entre palabras
+    return implode(" ", $tokens);
 }
 
 function tokenizarDescripcion($descripcion) {
