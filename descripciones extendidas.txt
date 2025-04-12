@@ -1,50 +1,42 @@
-Codigo: 112049 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. BDO. COCOx120GR
-Codigo: 112052 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. BDO. YEMA FRUTx120GR
-Codigo: 112067 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI MIELx80GR
-Codigo: 112086 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORG. CROC. MANIx80GR
-Codigo: 112087 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. ALMENDRAS Bx90GR
-Codigo: 112134 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMESANO MANIx80GR
-Codigo: 112137 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMESANO MANIx150GR
-Codigo: 112143 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. MANI MIELx120GR
-Codigo: 112147 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. MANI FRUTx120GR
-Codigo: 112156 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI MIELx120GR
-Codigo: 112360 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI FRUTAx120GR
-Codigo: 112366 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI CHOCx90GR
-Codigo: 112368 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. BDO. MANI YEMAx120GR
-Codigo: 112374 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI MIEL CHx90GR
-Codigo: 161100 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORG. CHOC. ALMENDRAx100GR
-Codigo: 161108 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORG. CREM. CATALANAx100GR
-Codigo: 161131 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI BDO. YEMA PALMESx100GR
-Codigo: 161132 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI BDO. FTA PALMESAx100GR
-Codigo: 161134 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON BDO. PALM. YEM CAC FRUx100GR
-Codigo: 161136 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI PALME. CIR. OPORTx100GR
-Codigo: 161137 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON MANI PALM. COCO BDO. x100GR
-Codigo: 161138 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALM. YEMA ALMEN. TOSTx100GR
-Codigo: 161139 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALM. ALMEN. FRUT. RJAx100GR
-Codigo: 161140 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. ALMENDRASx120GR
-Codigo: 161145 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORG. MANI YEMAx100GR
-Codigo: 161147 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANIx80GR
-Codigo: 161148 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANIx120GR
-Codigo: 161149 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANIx280GR
-Codigo: 161150 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI C FRUTAx80GR
-Codigo: 161152 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI C FRUTx120GR
-Codigo: 161153 | Rubro: 1 | Subrubro: 61 | Descripcion: CROCANTE ARCOR MANIx80GR
-Codigo: 161154 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ARCOR MANI C MIELx120GR
-Codigo: 161180 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMES. MANI C CERx100GR
-Codigo: 161202 | Rubro: 1 | Subrubro: 61 | Descripcion: TABLETA GEORGALOS MOUSE DDLx100GR
-Codigo: 161203 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS FR. SECOSx95GR
-Codigo: 161204 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C CACAOx90GR
-Codigo: 161205 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C DDLx90GR
-Codigo: 161206 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C CHOCOLx90GR
-Codigo: 161207 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON GEORGALOS C ALMENDx90GR
-Codigo: 161208 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE ARCOR TRIFLE CHOCx160GR
-Codigo: 161210 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE AGUILA MOUSSEx160GR
-Codigo: 161218 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BONx220GR
-Codigo: 161220 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BON TENTACIONx260GR
-Codigo: 161233 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BON TRADIC. x95GR
-Codigo: 161234 | Rubro: 1 | Subrubro: 61 | Descripcion: POSTRE BON O BON TENTACIONx120GR
-Codigo: 161238 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON PALMESANO MANIx280GR
-Codigo: 161239 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ALM ALIC. ARCORx100GR
-Codigo: 161240 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON ALM AL. CAC. ARCORx100GR
-Codigo: 161241 | Rubro: 1 | Subrubro: 61 | Descripcion: TURRON CRANBERRIES ARCORx100GR
-Codigo: 162039 | Rubro: 1 | Subrubro: 61 | Descripcion: CROCANTE ALMENDRAS PALMESANOx100GR
+Codigo: 143110 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SANCORx1KG
+Codigo: 143144 | Rubro: 1 | Subrubro: 43 | Descripcion: ALIMENTO A BASE DE MIEL GRANJA ROSALIAx500GR
+Codigo: 143238 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA BATATAx500GR
+Codigo: 143239 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA MEMBRILLOx500GR
+Codigo: 143240 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA BATATA CHOCx500GR
+Codigo: 143271 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR BATATAx500GR
+Codigo: 143272 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR MEMBRILLOx500GR
+Codigo: 143300 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SANCORx400GR
+Codigo: 143305 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE PON. NEGROx450GR
+Codigo: 143351 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE MANFREYx400GR
+Codigo: 143375 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE GJA DE ORx400GR
+Codigo: 143389 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE MANFRE. RPx400GR
+Codigo: 143404 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE ILOLAY CLx400GR
+Codigo: 143409 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SANCOR TRx250GR
+Codigo: 143410 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE REP SANCORx400GR
+Codigo: 143413 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DULCE MANI KINGx485GR
+Codigo: 143435 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS REPOSTEx400GR
+Codigo: 143440 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR BATATA C CHx500GR
+Codigo: 143446 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE ILOLAY REx400GR
+Codigo: 143448 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS FRASCOx450GR
+Codigo: 143453 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE LOS QUEBRx400GR
+Codigo: 143456 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE EL QUEBRAx400GR
+Codigo: 143463 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SER POTEx300GR
+Codigo: 143464 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS COLONIALx400GR
+Codigo: 143465 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS CLASICOx400GR
+Codigo: 143466 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS COLONIALx250GR
+Codigo: 143469 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS COLONIALx1KG
+Codigo: 143471 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SUPERPRECx400GR
+Codigo: 143477 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS FRASCOx1000GR
+Codigo: 143478 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL MARIA SILVINA FRASCx470GR
+Codigo: 143479 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL MARIA SILVINA POTEx500GR
+Codigo: 143483 | Rubro: 1 | Subrubro: 43 | Descripcion: MANTECA DULCE MANI KINGx350GR
+Codigo: 143484 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS CLAS. x250GR
+Codigo: 143485 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LS RED. LACx300GR
+Codigo: 143486 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS CR. FR. x450GR
+Codigo: 143488 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DULCE MANI KING CRUNCx350GR
+Codigo: 143489 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE MILKAUTx400GR
+Codigo: 143490 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS CR FR. x1000GR
+Codigo: 143492 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FLORES DULCE LIEBIGx500GR
+Codigo: 143493 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE LA PAULINx400GR
+Codigo: 143494 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DULCE MANI CROPP. CRUNx305GR
+Codigo: 143495 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FINCAS CDEx500GR

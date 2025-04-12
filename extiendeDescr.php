@@ -68,11 +68,11 @@ function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos
 
     $palabraIndex = 0;
     for ($i = 0; $i < count($tokens); $i++) {
-        if ($palabraIndex < 2) { // Solo modificar las dos primeras palabras reales
+        if ($palabraIndex < 3) { // Solo modificar las dos primeras palabras reales
             foreach ($abreviaciones as $index => $abrev) {
                 similar_text($tokens[$i], $abrev, $porcentaje);
                 echo $tokens[$i] . " - " . $abrev . " - " . $porcentaje . "\n";
-                if ($porcentaje >= 75) {
+                if ($porcentaje >= 75) { //originalmente estaba en 75%
                     $tokens[$i] = $nombresCompletos[$index];
                     break;
                 }
@@ -130,7 +130,7 @@ $archivoCSV = "diccionarioDescr.csv";
 $diccionario = cargarDiccionarioDesdeCSV($archivoCSV);
 
 $baseTop = new mysqli('192.168.10.204', 'desarrollo', 'desarrollosoporte975', 'ventas');
-$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '61'" ;
+$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '43'" ;
 $result = $baseTop->query($sql);
 $productos = array();
 while($resultado = $result->fetch_assoc()){
