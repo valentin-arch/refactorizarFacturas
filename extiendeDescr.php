@@ -94,8 +94,8 @@ function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos
             foreach ($abreviaciones as $index => $abrev) {
                 $longToken = strlen($tokens[$i]);
 
-                // Umbral dinámico: si la palabra es muy corta, bajar el porcentaje
-                $umbral = ($longToken <= 3) ? 60 : 75;
+                // Umbral dinámico: si la palabra es muy corta, se baja el porcentaje el porcentaje
+                $umbral = ($longToken <= 3) ? 70 : 80;
 
                 similar_text(strtoupper($tokens[$i]), strtoupper($abrev), $porcentaje);
                 if ($porcentaje >= $umbral) {
