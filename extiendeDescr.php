@@ -85,7 +85,7 @@ function cargarDiccionarioDesdeCSV($archivo) {
 //}
 
 function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
-    preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
+    preg_match_all('/[^ .\/]+[.\/]? /', $descripcion, $matches);
     $tokens = $matches[0];
 
     $palabraIndex = 0;
@@ -106,7 +106,6 @@ function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos
             $palabraIndex++;
         }
     }
-
     return implode(" ", $tokens);
 }
 

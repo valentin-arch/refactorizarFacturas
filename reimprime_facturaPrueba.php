@@ -38,6 +38,8 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
     echo "pv = $pv, nroFact = $nroFact, fecha = $fechaFormat, suc = $suc, tipoFact = $tipoFact";
 
     // Tipos de datos correctos
+
+    $stmt = $facturacion->prepare($sql);
     $stmt->bind_param("iisii", $pv, $nroFact, $fechaFormat, $suc, $tipoFact);
     $stmt->execute();
     
@@ -53,6 +55,7 @@ function obtenerIdCompra($clubTop, $pv, $nroFact) {
     $nro_comprobante = sprintf("%05d%08d", $pv, $nroFact);
     $sql = "SELECT id FROM purchases WHERE nro_ticket = ?";
 
+    $stmt = $clubTop->prepare($sql);   
     $stmt->bind_param("i", $nro_comprobante);
     $stmt->execute();
     $stmt->bind_result($id);
@@ -64,6 +67,7 @@ function obtenerIdCompra($clubTop, $pv, $nroFact) {
 function obtenerArticulos($clubTop, $purchaseId) {
     $sql = "SELECT article_cod, amount, price FROM tickets WHERE purchase_id = ?";
 
+    $stmt = $clubTop->prepare($sql);
     $stmt->bind_param("i", $purchaseId);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -88,7 +92,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 	$ptoVta = 413;
 	$nroFact = 120233;
 
-        $login  = new mysqli("super-imperio.com.ar", "", "", "login");
+        $login  = new mysqli("super-imperio.com.ar", "Valentin Re", "748596", "login");
 
         $factura = obtenerFactura($facturacion, $tipo, $ptoVta, $nroFact, $fecha, $suc);
         $cae = $factura['cae'];
