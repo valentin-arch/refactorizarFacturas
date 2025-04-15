@@ -61,52 +61,70 @@ function cargarDiccionarioDesdeCSV($archivo) {
  * @return string Descripción modificada.
  */
 
-//function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
-    // Separar palabras manteniendo puntos y slashes en los tokens
-//    preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
-//    $tokens = $matches[0];
-
-//    $palabraIndex = 0;
-//    for ($i = 0; $i < count($tokens); $i++) {
-//        if ($palabraIndex < 3) { // Solo modificar las dos primeras palabras reales
-//            foreach ($abreviaciones as $index => $abrev) {
-//                similar_text($tokens[$i], $abrev, $porcentaje);
-//                echo $tokens[$i] . " - " . $abrev . " - " . $porcentaje . "\n";
-//                if ($porcentaje >= 75) { //originalmente estaba en 75%
-//                    $tokens[$i] = $nombresCompletos[$index];
-//                    break;
-//                }
-//            }
-//            $palabraIndex++;
-//        }
-//    }
-
-//    return implode(" ", $tokens); // Reconstruir la cadena con espacios entre palabras
-//}
-
-function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
-    preg_match_all('/[^ .\/]+[.\/]? /', $descripcion, $matches);
+ function reemplazarAbreviacionesConDebug($descripcion, $abreviaciones, $nombresCompletos, &$debug = null) {
+    preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
     $tokens = $matches[0];
+    $resultado = [];
 
-    $palabraIndex = 0;
-    for ($i = 0; $i < count($tokens); $i++) {
-        if ($palabraIndex < 3) {
+    $i = 0;
+    $debug = []; // Inicializa debug para este producto
+
+    while ($i < count($tokens)) {
+        $reemplazado = false;
+
+        // Intentar con 3 tokens
+        if ($i + 2 < count($tokens)) {
+            $combo3 = strtoupper(trim($tokens[$i] . " " . $tokens[$i+1] . " " . $tokens[$i+2]));
             foreach ($abreviaciones as $index => $abrev) {
-                $longToken = strlen($tokens[$i]);
-
-                // Umbral dinámico: si la palabra es muy corta, se baja el porcentaje el porcentaje
-                $umbral = ($longToken <= 3) ? 70 : 80;
-
-                similar_text(strtoupper($tokens[$i]), strtoupper($abrev), $porcentaje);
-                if ($porcentaje >= $umbral) {
-                    $tokens[$i] = $nombresCompletos[$index];
+                $sim = similitud($combo3, strtoupper($abrev));
+                $debug[] = "[3 palabras] '$combo3' vs '$abrev' => $sim%";
+                if ($sim >= 70) {
+                    $resultado[] = $nombresCompletos[$index];
+                    $i += 3;
+                    $reemplazado = true;
                     break;
                 }
             }
-            $palabraIndex++;
+        }
+
+        // Intentar con 2 tokens
+        if (!$reemplazado && $i + 1 < count($tokens)) {
+            $combo2 = strtoupper(trim($tokens[$i] . " " . $tokens[$i+1]));
+            foreach ($abreviaciones as $index => $abrev) {
+                $sim = similitud($combo2, strtoupper($abrev));
+                $debug[] = "[2 palabras] '$combo2' vs '$abrev' => $sim%";
+                if ($sim >= 75) {
+                    $resultado[] = $nombresCompletos[$index];
+                    $i += 2;
+                    $reemplazado = true;
+                    break;
+                }
+            }
+        }
+
+        // Intentar con 1 token
+        if (!$reemplazado) {
+            $palabra = strtoupper(trim($tokens[$i]));
+            foreach ($abreviaciones as $index => $abrev) {
+                $umbral = (strlen($palabra) <= 3) ? 60 : 75;
+                $sim = similitud($palabra, strtoupper($abrev));
+                $debug[] = "[1 palabra] '$palabra' vs '$abrev' => $sim%";
+                if ($sim >= $umbral) {
+                    $resultado[] = $nombresCompletos[$index];
+                    $i++;
+                    $reemplazado = true;
+                    break;
+                }
+            }
+        }
+
+        if (!$reemplazado) {
+            $resultado[] = $tokens[$i];
+            $i++;
         }
     }
-    return implode(" ", $tokens);
+
+    return implode(" ", $resultado);
 }
 
 function tokenizarDescripcion($descripcion) {
@@ -114,11 +132,12 @@ function tokenizarDescripcion($descripcion) {
 }
 
 function similitud($a, $b) {
-    similar_text(strtolower($a), strtolower($b), $percent);
+    //similar_text(strtolower($a), strtolower($b), $percent);
+    levenshtein(strtolower($a), strtolower($b));
     return $percent;
 }
 
-function reemplazarMarca($descripcion, $marcas, $codigo) {
+/*function reemplazarMarca($descripcion, $marcas, $codigo) {
     if (!isset($marcas[$codigo])) {
         return $descripcion;
     }
@@ -146,7 +165,7 @@ function reemplazarMarca($descripcion, $marcas, $codigo) {
         $descripcion = str_replace($mejor_match, $marca_correcta, $descripcion);
         return $descripcion;
     }
-}
+}*/
 
 // Ruta del CSV
 $archivoCSV = "diccionarioDescr.csv";
@@ -162,7 +181,7 @@ while($resultado = $result->fetch_assoc()){
     $productos[$resultado['codigo']] = array('rubro' => $resultado['rubro'], 'subrubro' => $resultado['sub_rubro'], 'descripcion' => $resultado['descripcion']);
 }
 
-foreach ($productos as &$producto) {
+/*foreach ($productos as &$producto) {
     $rubro = $producto["rubro"];
     $subrubro = $producto["subrubro"];
 
@@ -172,7 +191,27 @@ foreach ($productos as &$producto) {
         $nombresCompletos = $diccionario[$rubro][$subrubro]["full"];
         $producto["descripcion"] = reemplazarAbreviaciones($producto["descripcion"], $abreviaciones, $nombresCompletos);
     }
+}*/
+
+foreach ($productos as $codigo => &$producto) {
+    $rubro = $producto["rubro"];
+    $subrubro = $producto["subrubro"];
+
+    if (isset($diccionario[$rubro][$subrubro])) {
+        $abreviaciones = $diccionario[$rubro][$subrubro]["abrev"];
+        $nombresCompletos = $diccionario[$rubro][$subrubro]["full"];
+        $debug = [];
+
+        $nueva = reemplazarAbreviacionesConDebug($producto["descripcion"], $abreviaciones, $nombresCompletos, $debug);
+        echo "Producto $codigo:\n";
+        echo "Original: {$producto["descripcion"]}\n";
+        echo "Modificada: $nueva\n";
+        echo "Debug:\n" . implode("\n", $debug) . "\n\n";
+
+        $producto["descripcion"] = $nueva;
+    }
 }
+
 
 // Mostrar los productos actualizados
 print_r($productos);

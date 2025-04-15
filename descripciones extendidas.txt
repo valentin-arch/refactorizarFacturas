@@ -1,42 +1,42 @@
-Codigo: 143110 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SANCORx1KG
-Codigo: 143144 | Rubro: 1 | Subrubro: 43 | Descripcion: ALIMENTO A BASE DE MIEL GRANJA ROSALIAx500GR
+Codigo: 143110 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SANCORx1KG
+Codigo: 143144 | Rubro: 1 | Subrubro: 43 | Descripcion: ALIM. MIEL GRANJA ROSALIAx500GR
 Codigo: 143238 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA BATATAx500GR
 Codigo: 143239 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA MEMBRILLOx500GR
 Codigo: 143240 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA BATATA CHOCx500GR
 Codigo: 143271 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR BATATAx500GR
 Codigo: 143272 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR MEMBRILLOx500GR
-Codigo: 143300 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SANCORx400GR
+Codigo: 143300 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SANCORx400GR
 Codigo: 143305 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE PON. NEGROx450GR
-Codigo: 143351 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE MANFREYx400GR
-Codigo: 143375 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE GJA DE ORx400GR
-Codigo: 143389 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE MANFRE. RPx400GR
-Codigo: 143404 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE ILOLAY CLx400GR
-Codigo: 143409 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SANCOR TRx250GR
+Codigo: 143351 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE MANFREYx400GR
+Codigo: 143375 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE GJA DE ORx400GR
+Codigo: 143389 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE MANFRE. RPx400GR
+Codigo: 143404 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE ILOLAY CLx400GR
+Codigo: 143409 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SANCOR TRx250GR
 Codigo: 143410 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE REP SANCORx400GR
-Codigo: 143413 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DULCE MANI KINGx485GR
+Codigo: 143413 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DE MANI KINGx485GR
 Codigo: 143435 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS REPOSTEx400GR
 Codigo: 143440 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR BATATA C CHx500GR
-Codigo: 143446 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE ILOLAY REx400GR
+Codigo: 143446 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE ILOLAY REx400GR
 Codigo: 143448 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS FRASCOx450GR
-Codigo: 143453 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE LOS QUEBRx400GR
-Codigo: 143456 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE EL QUEBRAx400GR
+Codigo: 143453 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LOS QUEBRx400GR
+Codigo: 143456 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE EL QUEBRAx400GR
 Codigo: 143463 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE SER POTEx300GR
-Codigo: 143464 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D DE LECHE LS COLONIALx400GR
+Codigo: 143464 | Rubro: 1 | Subrubro: 43 | Descripcion: DCE D LECH LS COLONIALx400GR
 Codigo: 143465 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS CLASICOx400GR
-Codigo: 143466 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D DE LECHE LS COLONIALx250GR
-Codigo: 143469 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D DE LECHE LS COLONIALx1KG
-Codigo: 143471 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE SUPERPRECx400GR
+Codigo: 143466 | Rubro: 1 | Subrubro: 43 | Descripcion: DCE D LECH LS COLONIALx250GR
+Codigo: 143469 | Rubro: 1 | Subrubro: 43 | Descripcion: DCE D LECH LS COLONIALx1KG
+Codigo: 143471 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SUPERPRECx400GR
 Codigo: 143477 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS FRASCOx1000GR
 Codigo: 143478 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL MARIA SILVINA FRASCx470GR
 Codigo: 143479 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL MARIA SILVINA POTEx500GR
-Codigo: 143483 | Rubro: 1 | Subrubro: 43 | Descripcion: MANTECA DULCE MANI KINGx350GR
+Codigo: 143483 | Rubro: 1 | Subrubro: 43 | Descripcion: MANTECA DE MANI KINGx350GR
 Codigo: 143484 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS CLAS. x250GR
 Codigo: 143485 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS RED. LACx300GR
 Codigo: 143486 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS CR. FR. x450GR
-Codigo: 143488 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DULCE MANI KING CRUNCx350GR
-Codigo: 143489 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE MILKAUTx400GR
+Codigo: 143488 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DE MANI KING CRUNCx350GR
+Codigo: 143489 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE MILKAUTx400GR
 Codigo: 143490 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS CR FR. x1000GR
-Codigo: 143492 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FLORES DULCE LIEBIGx500GR
-Codigo: 143493 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCE LECHE LA PAULINx400GR
-Codigo: 143494 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DULCE MANI CROPP. CRUNx305GR
+Codigo: 143492 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FLORES DE LIEBIGx500GR
+Codigo: 143493 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LA PAULINx400GR
+Codigo: 143494 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DE MANI CROPP. CRUNx305GR
 Codigo: 143495 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FINCAS CDEx500GR

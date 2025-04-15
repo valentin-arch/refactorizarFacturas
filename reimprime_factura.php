@@ -1,11 +1,5 @@
 <?php
-//require_once 'config.php';
-$conexion = new mysqli("localhost", "Valentin Re", "748596", "nombre_base");
-
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
-
+require_once 'config.php';
 require_once 'reimpresionFacturas.php';
 ob_start();
 session_start();
@@ -41,7 +35,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		$im = imagecreatetruecolor(1, 1);
 		$black = imagecolorallocate($im, 0, 0, 0);
 
-		$tipoFac = 1;
+		$tipo = 1;
 		if (substr($datos, 15,1) == 'B') {
 			$tipoFac = 6;
 		}
@@ -53,7 +47,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		} else {
 			$plantilla = facturaB($black, $fontRegular, $fontBlack, $datos);
 		}
-		
+
 		//imagettftext($image,  $size, $angle,  $x,  $y,  $color, $fontfile,  $text)
 		imagettftext($plantilla, 30, 0, 712, 150, $black, $fontBlack, "FACTURA");
 		imagettftext($plantilla, 14, 0, 240, 307, $black, $fontRegular, "Av. Sabattini N° 4450 - Rio Cuarto - Cordoba");
@@ -93,7 +87,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		//$mensa_qr = "{'ver':1, 'fecha':'" . substr($datos, 148,4) . "-" . substr($datos, 146,2) . "-" . substr($datos, 144,2) . "','cuit':30583747792,'ptoVta':" . substr($datos, 2,4) . ",'tipoCmp':" . $tipoFac . ",'importe':" . substr($datos, 85,10) . ",'moneda':'PES','ctz':1,'tipoDocRec':80,'nroDocRec':" . substr($datos, 70,11) . ",'tipoCodAut':'A','codAut':". substr($datos, 165, 14);
 		$mensa_qr = [
 			"ver" => 1,
-			"fecha" => substr($datos, 148,4) . "-" . substr($datos, 146,2) . "-" . substr($datos, 144,2),
+			"fecha" => substr($fecha),
 			"cuit" => 30583747792,
 			"ptoVta" => intval(substr($datos, 2,4)),
 			"tipoCmp" => $tipoFac,
@@ -124,8 +118,6 @@ if (file_exists("archivos/temporales/art.txt")) {
 			$return = descrB($black, $fontRegular, $fontBlack, $suc, $fecha);
 		}
 
-		
-
 		$resultado = imagejpeg($return[0], "factura0$return[1].jpg");
 
 		$merge = "pdfunite ";
@@ -140,18 +132,15 @@ if (file_exists("archivos/temporales/art.txt")) {
 
 		}
 
-
 		$random = rand(0, 99999999);
 		$nombre = $random . "ReImpFactura.pdf";
 		$merge .= " " . getcwd() . "/archivos/mensajes/facturacion/". $nombre;
 		if ($return[1] == 1) {
 			$merge = "cp factura01.pdf " . getcwd() . "/archivos/mensajes/facturacion/". $nombre;
 		}
-		
 
 		shell_exec($merge);
 		shell_exec($deleteFiles);
-		
 
 		$id_archivo = NULL;
 
@@ -162,10 +151,10 @@ if (file_exists("archivos/temporales/art.txt")) {
 
 		imagedestroy($qr);
 		imagedestroy($plantilla);
-		
+
 		if (round(floatval($_SESSION['totalArts']),2) == round(floatval($_SESSION['totalfactura']),2) ) {
 			//tengo que enviar mensaje interno con el id del arhivo
-		
+
 				if (!is_null($id_archivo)) {
 					$textoMensaje = "PDF de la reimpresion adjunta al mensaje" . PHP_EOL .
 									"Mensaje generado de forma automatica, no lo responda";
@@ -180,7 +169,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 				$sql = "INSERT INTO mensajesinternos (id_origen, id_destino, id_cc, asunto, mensaje, id_archivo, creacion)
 				  VALUES ($id_origen, $id_destino, '', '$textoAsunto', '$textoMensaje', '$id_archivo', CURRENT_TIMESTAMP )";
 				$login->query($sql);
-				
+
 				$id_destino = 3;
 				$sql = "INSERT INTO mensajesinternos (id_origen, id_destino, id_cc, asunto, mensaje, id_archivo, creacion)
 				  VALUES ($id_origen, $id_destino, '', '$textoAsunto', '$textoMensaje', '$id_archivo', CURRENT_TIMESTAMP )";
@@ -193,7 +182,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 				$sql = "INSERT INTO mensajesinternos (id_origen, id_destino, id_cc, asunto, mensaje, id_archivo, creacion)
 				  VALUES ($id_origen, $id_destino, '', '$textoAsunto', '$textoMensaje', '$id_archivo', CURRENT_TIMESTAMP )";
 				$login->query($sql);
-			
+
 				aviso("Comprobante reimpreso Correctamente");
 			}else{
 
@@ -202,7 +191,6 @@ if (file_exists("archivos/temporales/art.txt")) {
 				aviso("Total Fact", round(floatval($_SESSION['totalfactura']),2));
 			}
 		echo '</script>
-
 
 				<script type="text/javascript">
 
@@ -216,6 +204,7 @@ if (file_exists("archivos/temporales/art.txt")) {
 		ob_start();
 
 		?>
+		
 <link href="css/botones.css" rel="stylesheet">
 <div class="content">
     <div class="container">
@@ -223,13 +212,11 @@ if (file_exists("archivos/temporales/art.txt")) {
     <div class="well text-center">
     <center><h2><font style='font-variant:small-caps;' >Reimpresión de Comprobantes</font></h2></center><hr>
 
-    
     <?php
 	if (!isset($_SESSION['logged_in'])) {
 	        header('Location: index.php');
 	    }
 
-		
 		echo '<center><div class="okay_bbc"><b>Debe subir dos archivos:</b> <hr>
           <b>fact.txt</b> que debe contener solo la linea correspondiente al comprobante.<br>
           <b>art.txt</b> que debe contener articulos relacionados al comprobante. 
@@ -246,13 +233,6 @@ if (file_exists("archivos/temporales/art.txt")) {
 		require_once 'templates/footer.php';
 
 	}
-
-
-
-
-
-
-
 
 $plantilla = facturaA($black, $fontRegular, $fontBlack, $datos, $factura);
 {

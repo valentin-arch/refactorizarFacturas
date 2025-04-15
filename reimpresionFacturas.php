@@ -20,11 +20,11 @@ function obtenerFactura($facturacion, $tipoFact, $pv, $nroFact, $fecha, $suc) {
     
     echo "Consultando con los siguientes valores: ";
     echo "pv = $pv, nroFact = $nroFact, fecha = $fecha, suc = $suc, tipoFact = $tipoFact";
-    
+
     // Tipos de datos correctos
     $stmt->bind_param("iisii", $pv, $nroFact, $fecha, $suc, $tipoFact);
     $stmt->execute();
-    
+
     $result = $stmt->get_result();
     if ($result !== false && $result->num_rows == 1) {
         return $result->fetch_assoc();
