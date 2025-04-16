@@ -24,7 +24,7 @@ function cargarDiccionarioDesdeCSV($archivo) {
     if ($handle) {
         while (($line = fgetcsv($handle, 0)) !== false) {
 
-            $rubro =            trim($line[0]);
+            $rubro = trim($line[0]);
             $subrubro = trim($line[1]);
             $abreviacion = trim($line[2]);
             $nombreCompleto = trim($line[3]);
