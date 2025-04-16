@@ -61,64 +61,47 @@ function cargarDiccionarioDesdeCSV($archivo) {
  * @return string Descripción modificada.
  */
 
- function reemplazarAbreviacionesConDebug($descripcion, $abreviaciones, $nombresCompletos, &$debug = null) {
+function reemplazarAbreviaciones($descripcion, $abreviaciones, $nombresCompletos) {
     preg_match_all('/[^ .\/]+[.\/]?/', $descripcion, $matches);
     $tokens = $matches[0];
     $resultado = [];
-
     $i = 0;
-    $debug = []; // Inicializa debug para este producto
 
     while ($i < count($tokens)) {
         $reemplazado = false;
 
-        // Intentar con 3 tokens
-        if ($i + 2 < count($tokens)) {
-            $combo3 = strtoupper(trim($tokens[$i] . " " . $tokens[$i+1] . " " . $tokens[$i+2]));
-            foreach ($abreviaciones as $index => $abrev) {
-                $sim = similitud($combo3, strtoupper($abrev));
-                $debug[] = "[3 palabras] '$combo3' vs '$abrev' => $sim%";
-                if ($sim >= 70) {
-                    $resultado[] = $nombresCompletos[$index];
-                    $i += 3;
-                    $reemplazado = true;
-                    break;
-                }
-            }
-        }
+        // Combinar hasta 3 tokens
+        for ($j = 3; $j >= 1; $j--) {
+            if ($i + $j - 1 < count($tokens)) {
+                $combo = implode(" ", array_slice($tokens, $i, $j));
+                $mejorMatch = null;
+                $menorDistancia = PHP_INT_MAX;
 
-        // Intentar con 2 tokens
-        if (!$reemplazado && $i + 1 < count($tokens)) {
-            $combo2 = strtoupper(trim($tokens[$i] . " " . $tokens[$i+1]));
-            foreach ($abreviaciones as $index => $abrev) {
-                $sim = similitud($combo2, strtoupper($abrev));
-                $debug[] = "[2 palabras] '$combo2' vs '$abrev' => $sim%";
-                if ($sim >= 75) {
-                    $resultado[] = $nombresCompletos[$index];
-                    $i += 2;
-                    $reemplazado = true;
-                    break;
-                }
-            }
-        }
+                foreach ($abreviaciones as $index => $abrev) {
+                    $distancia = levenshtein(strtoupper($combo), strtoupper($abrev));
 
-        // Intentar con 1 token
-        if (!$reemplazado) {
-            $palabra = strtoupper(trim($tokens[$i]));
-            foreach ($abreviaciones as $index => $abrev) {
-                $umbral = (strlen($palabra) <= 3) ? 60 : 75;
-                $sim = similitud($palabra, strtoupper($abrev));
-                $debug[] = "[1 palabra] '$palabra' vs '$abrev' => $sim%";
-                if ($sim >= $umbral) {
-                    $resultado[] = $nombresCompletos[$index];
-                    $i++;
-                    $reemplazado = true;
+                    $longitudMaxima = max(strlen($combo), strlen($abrev));
+                    $umbral = ($longitudMaxima <= 4) ? 1 : 2;
+
+                    if ($distancia <= $umbral && $distancia < $menorDistancia) {
+                        $mejorMatch = $nombresCompletos[$index];
+                        $menorDistancia = $distancia;
+                        $reemplazado = true;
+                        break; // Si ya matchea bien, salimos
+                    }
+                }
+
+                if ($reemplazado && $mejorMatch !== null) {
+                    $resultado[] = $mejorMatch;
+                    $i += $j; // saltamos los tokens combinados
                     break;
                 }
             }
         }
 
         if (!$reemplazado) {
+            // Log de token individual no reemplazado
+            echo "Token no reemplazado: '{$tokens[$i]}'\n";
             $resultado[] = $tokens[$i];
             $i++;
         }
@@ -174,24 +157,12 @@ $archivoCSV = "diccionarioDescr.csv";
 $diccionario = cargarDiccionarioDesdeCSV($archivoCSV);
 
 $baseTop = new mysqli('192.168.10.204', 'desarrollo', 'desarrollosoporte975', 'ventas');
-$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '43'" ;
+$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '53'" ;
 $result = $baseTop->query($sql);
 $productos = array();
 while($resultado = $result->fetch_assoc()){
     $productos[$resultado['codigo']] = array('rubro' => $resultado['rubro'], 'subrubro' => $resultado['sub_rubro'], 'descripcion' => $resultado['descripcion']);
 }
-
-/*foreach ($productos as &$producto) {
-    $rubro = $producto["rubro"];
-    $subrubro = $producto["subrubro"];
-
-    // Verificar si hay abreviaciones para esta categoría
-    if (isset($diccionario[$rubro][$subrubro])) {
-        $abreviaciones = $diccionario[$rubro][$subrubro]["abrev"];
-        $nombresCompletos = $diccionario[$rubro][$subrubro]["full"];
-        $producto["descripcion"] = reemplazarAbreviaciones($producto["descripcion"], $abreviaciones, $nombresCompletos);
-    }
-}*/
 
 foreach ($productos as $codigo => &$producto) {
     $rubro = $producto["rubro"];
@@ -202,7 +173,7 @@ foreach ($productos as $codigo => &$producto) {
         $nombresCompletos = $diccionario[$rubro][$subrubro]["full"];
         $debug = [];
 
-        $nueva = reemplazarAbreviacionesConDebug($producto["descripcion"], $abreviaciones, $nombresCompletos, $debug);
+        $nueva = reemplazarAbreviaciones($producto["descripcion"], $abreviaciones, $nombresCompletos, $debug);
         echo "Producto $codigo:\n";
         echo "Original: {$producto["descripcion"]}\n";
         echo "Modificada: $nueva\n";
@@ -230,7 +201,6 @@ if ($handleSalida) {
     echo "los productos se guardaron en el '$archivoDeSalida'\n";
 
 } else {
-    
     echo "no se pudo acceder al archivo de texto \n";
 }
 

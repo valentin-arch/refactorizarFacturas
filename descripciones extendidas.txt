@@ -1,42 +1,103 @@
-Codigo: 143110 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SANCORx1KG
-Codigo: 143144 | Rubro: 1 | Subrubro: 43 | Descripcion: ALIM. MIEL GRANJA ROSALIAx500GR
-Codigo: 143238 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA BATATAx500GR
-Codigo: 143239 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA MEMBRILLOx500GR
-Codigo: 143240 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE ORIETA BATATA CHOCx500GR
-Codigo: 143271 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR BATATAx500GR
-Codigo: 143272 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR MEMBRILLOx500GR
-Codigo: 143300 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SANCORx400GR
-Codigo: 143305 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE PON. NEGROx450GR
-Codigo: 143351 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE MANFREYx400GR
-Codigo: 143375 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE GJA DE ORx400GR
-Codigo: 143389 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE MANFRE. RPx400GR
-Codigo: 143404 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE ILOLAY CLx400GR
-Codigo: 143409 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SANCOR TRx250GR
-Codigo: 143410 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE REP SANCORx400GR
-Codigo: 143413 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DE MANI KINGx485GR
-Codigo: 143435 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS REPOSTEx400GR
-Codigo: 143440 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DULCOR BATATA C CHx500GR
-Codigo: 143446 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE ILOLAY REx400GR
-Codigo: 143448 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS FRASCOx450GR
-Codigo: 143453 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LOS QUEBRx400GR
-Codigo: 143456 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE EL QUEBRAx400GR
-Codigo: 143463 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE SER POTEx300GR
-Codigo: 143464 | Rubro: 1 | Subrubro: 43 | Descripcion: DCE D LECH LS COLONIALx400GR
-Codigo: 143465 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS CLASICOx400GR
-Codigo: 143466 | Rubro: 1 | Subrubro: 43 | Descripcion: DCE D LECH LS COLONIALx250GR
-Codigo: 143469 | Rubro: 1 | Subrubro: 43 | Descripcion: DCE D LECH LS COLONIALx1KG
-Codigo: 143471 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE SUPERPRECx400GR
-Codigo: 143477 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS FRASCOx1000GR
-Codigo: 143478 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL MARIA SILVINA FRASCx470GR
-Codigo: 143479 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL MARIA SILVINA POTEx500GR
-Codigo: 143483 | Rubro: 1 | Subrubro: 43 | Descripcion: MANTECA DE MANI KINGx350GR
-Codigo: 143484 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS CLAS. x250GR
-Codigo: 143485 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE D LECHE LS RED. LACx300GR
-Codigo: 143486 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS CR. FR. x450GR
-Codigo: 143488 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DE MANI KING CRUNCx350GR
-Codigo: 143489 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE MILKAUTx400GR
-Codigo: 143490 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FL. PUNTANAS CR FR. x1000GR
-Codigo: 143492 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FLORES DE LIEBIGx500GR
-Codigo: 143493 | Rubro: 1 | Subrubro: 43 | Descripcion: DULCE DE LECHE LA PAULINx400GR
-Codigo: 143494 | Rubro: 1 | Subrubro: 43 | Descripcion: PASTA DE MANI CROPP. CRUNx305GR
-Codigo: 143495 | Rubro: 1 | Subrubro: 43 | Descripcion: MIEL FINCAS CDEx500GR
+Codigo: 108023 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO PLANCHA ROCAx600GR
+Codigo: 108044 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO RECTANG. ROCAx1KG
+Codigo: 108045 | Rubro: 1 | Subrubro: 53 | Descripcion: MERENGUITOS BLANCO P. ROCAx150GR
+Codigo: 108058 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO LYVIAN LACTEADO 3 CAPASx500GR
+Codigo: 108059 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO LYVIAN RECTANGULARx1KG
+Codigo: 108062 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO LYVIAN REDONDOx500GR
+Codigo: 108064 | Rubro: 1 | Subrubro: 53 | Descripcion: MERENGUE LYVIAN BLANCOx100GR
+Codigo: 108065 | Rubro: 1 | Subrubro: 53 | Descripcion: MERENGUE LYVIAN SURTIDOx100GR
+Codigo: 108068 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO LYVIAN PLANCHAx450GR
+Codigo: 108077 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO ROCAx500GR
+Codigo: 108079 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO REDONDO ROCAx1KG
+Codigo: 108101 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO DULCE ROCAx300GR
+Codigo: 108198 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO BONAFIDE CHOCOLATEx500GR
+Codigo: 108199 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO BONAFIDE VAINILLAx500GR
+Codigo: 153008 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO FLIAR VENEZIANAx600GR
+Codigo: 153015 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL VENEZIANAx360GR
+Codigo: 153017 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA AMERIC. VENEZIANAx4UN
+Codigo: 153018 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO SALADO ROCAx300GR
+Codigo: 153027 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN TRIS. LIGHT VENEZIANAx360GR
+Codigo: 153044 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL VENEZIANAx630GR
+Codigo: 153048 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN P PANCHOS VENEZIANAx210GR
+Codigo: 153065 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA VENEZIANA CON SESx4UN
+Codigo: 153082 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN TRIS. FLIAR VENEZIANAx620GR
+Codigo: 153198 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO BONAFIDE SALADOx180GR
+Codigo: 153199 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO F FARGO*x330GR
+Codigo: 153265 | Rubro: 1 | Subrubro: 53 | Descripcion: PREPIZZA PIEDRA VENEZ. 2ux500GR
+Codigo: 153267 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO LYVIAN ARROL. DCEx180GR
+Codigo: 153268 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO LYVIAN ARROL. SALx180GR
+Codigo: 153390 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO SALADO VENEZIANAx180GR
+Codigo: 153432 | Rubro: 1 | Subrubro: 53 | Descripcion: BIZCOCHUELO LYVIAN CHO VA CAPASx500GR
+Codigo: 153435 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN MULTIC. CORM. VENEZIANx410GR
+Codigo: 153460 | Rubro: 1 | Subrubro: 53 | Descripcion: TORTA VENEZIANA NARANJAx400GR
+Codigo: 153462 | Rubro: 1 | Subrubro: 53 | Descripcion: TORTA VENEZIANA CHIP CHOx400GR
+Codigo: 153463 | Rubro: 1 | Subrubro: 53 | Descripcion: TORTA VENEZIANA DCE LECHx450GR
+Codigo: 153464 | Rubro: 1 | Subrubro: 53 | Descripcion: TORTA VENEZIANA LIMONx400GR
+Codigo: 153489 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA SES. NEW FARGOx210GR
+Codigo: 153494 | Rubro: 1 | Subrubro: 53 | Descripcion: TORTILLAS VENEZIANAx6UN
+Codigo: 153503 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN DE CAMPO VENEZIANAx400GR
+Codigo: 153508 | Rubro: 1 | Subrubro: 53 | Descripcion: TORTILLAS VENEZIANA INTEGRx6UN
+Codigo: 153512 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO VENEZIANAx400GR
+Codigo: 153525 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO BONAFIDE DULCEx180GR
+Codigo: 153535 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL INTEGRAL NEW FARGO*x350GR
+Codigo: 153536 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN CER SEMILLA NEW*FARGx400GR
+Codigo: 153537 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SALVADO PLUS*NEW FARGOx600GR
+Codigo: 153538 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO NEW FARGOx380GR
+Codigo: 153539 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO FARGO*x550GR
+Codigo: 153540 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SALVADO PLUS NEW FARGO*x350GR
+Codigo: 153541 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN PANCHOS NEW FARGOx210GR
+Codigo: 153542 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA SES. NEW FARGOx210GR
+Codigo: 153543 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO NEW LACTALx460GR
+Codigo: 153544 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO NEW LACTALx315GR
+Codigo: 153545 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SALVADO NEW LACTALx330GR
+Codigo: 153546 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SALVADO NEW LACTALx560GR
+Codigo: 153547 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN PANCHOS NEW LACTALx210GR
+Codigo: 153548 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA NEW LACTALx210GR
+Codigo: 153549 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO R F*FARGOx550GR
+Codigo: 153550 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO ARTESANO BIMBO*x500GR
+Codigo: 153551 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL*ARTES. BIMBOx500GR
+Codigo: 153552 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SEMILLA ARTES. BIMBOx500GR
+Codigo: 153553 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA PAPA BIMBOx240GR
+Codigo: 153554 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA BRIOCHE BIMBOx240GR
+Codigo: 153555 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA ARTESANO BIMBOx240GR
+Codigo: 153556 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN PANCHO ARTES. BIMBOx240GR
+Codigo: 153557 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN CON SEMILLAS BIMBOx600GR
+Codigo: 153558 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN CON CEREALES BIMBOx600GR
+Codigo: 153563 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN CON LINO BIMBOx380GR
+Codigo: 153564 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO CON BIMBO BOLSA*x550GR
+Codigo: 153565 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL BOLSA*BIMBOx380GR
+Codigo: 153566 | Rubro: 1 | Subrubro: 53 | Descripcion: MASAS PIZZA LA PUNTANITAx450GR
+Codigo: 153567 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SEMILLA LACTALx330GR
+Codigo: 153568 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN PANCHO PAPA BIMBOx240GR
+Codigo: 153569 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL CERO BIMBOx350GR
+Codigo: 153573 | Rubro: 1 | Subrubro: 53 | Descripcion: SANDWICH ARABE M Q E. ORIENTEx1UN
+Codigo: 153574 | Rubro: 1 | Subrubro: 53 | Descripcion: SANDWICH ARABE J Q E. ORIENTEx1UN
+Codigo: 153575 | Rubro: 1 | Subrubro: 53 | Descripcion: SALVADO FLAUTA M Q E. ORIENTEx1UN
+Codigo: 153576 | Rubro: 1 | Subrubro: 53 | Descripcion: SALVADO FLAUTA J Q E. ORIENTEx1UN
+Codigo: 153577 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN HAMBURGUESA S BIMBO ACTIx210GR
+Codigo: 153578 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN PANCHO BIMBO CMx210GR
+Codigo: 153579 | Rubro: 1 | Subrubro: 53 | Descripcion: FAJITAS FARGOx275GR
+Codigo: 153580 | Rubro: 1 | Subrubro: 53 | Descripcion: BURRERA TIA ROSA FARGOx420GR
+Codigo: 153581 | Rubro: 1 | Subrubro: 53 | Descripcion: RAPIDITAS XXL BIMBOx620GR
+Codigo: 153582 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO MASA MADRE BIMBOx500GR
+Codigo: 153583 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO CERO BIMBOx400GR
+Codigo: 153584 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL CERO BIMBOx430GR
+Codigo: 153585 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO BIMBOx400GR
+Codigo: 153586 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN BLANCO BIMBOx610GR
+Codigo: 153587 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL BIMBOx420GR
+Codigo: 153588 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL BIMBOx640GR
+Codigo: 153589 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LINO BIMBOx640GR
+Codigo: 153590 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL MASAMADRE BIMBOx500GR
+Codigo: 153591 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN CON CER-SEM FARGOx400GR
+Codigo: 153592 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN INTEGRAL NEW FARGOx400GR
+Codigo: 153593 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO F FARGOx370GR
+Codigo: 153594 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SALVADO FLIAR FARGOx620GR
+Codigo: 153595 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN SALVADO PLUS FARGOx390GR
+Codigo: 153596 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO R F FARGOx585GR
+Codigo: 153597 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO FARGOx370GR
+Codigo: 153598 | Rubro: 1 | Subrubro: 53 | Descripcion: PAN LACTEADO FARGOx585GR
+Codigo: 154086 | Rubro: 1 | Subrubro: 53 | Descripcion: PIONONO DULCE VENEZIANAx180GR
+Codigo: 820185 | Rubro: 1 | Subrubro: 53 | Descripcion: PEBETE DE J Y Q ESTR. ORIENTEx2UN
+Codigo: 820186 | Rubro: 1 | Subrubro: 53 | Descripcion: PEBETE DE M Y Q ESTR. ORIENTEx2UN
+Codigo: 820187 | Rubro: 1 | Subrubro: 53 | Descripcion: SALVADO MIGA J Y Q E. ORIENTEx6UN
+Codigo: 836001 | Rubro: 1 | Subrubro: 53 | Descripcion: SALVADO MIGA J Y Q E. ORIENTEx3UN
