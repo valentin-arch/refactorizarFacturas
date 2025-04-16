@@ -24,7 +24,7 @@ function cargarDiccionarioDesdeCSV($archivo) {
     if ($handle) {
         while (($line = fgetcsv($handle, 0)) !== false) {
 
-            $rubro = trim($line[0]);
+            $rubro =            trim($line[0]);
             $subrubro = trim($line[1]);
             $abreviacion = trim($line[2]);
             $nombreCompleto = trim($line[3]);
@@ -44,8 +44,11 @@ function cargarDiccionarioDesdeCSV($archivo) {
             $diccionario[$rubro][$subrubro]["full"][] = $nombreCompleto;
         }
         fclose($handle);
+
     } else {
+
         die("Error: No se pudo abrir el archivo CSV.");
+
     }
 
     return $diccionario;
@@ -157,7 +160,7 @@ $archivoCSV = "diccionarioDescr.csv";
 $diccionario = cargarDiccionarioDesdeCSV($archivoCSV);
 
 $baseTop = new mysqli('192.168.10.204', 'desarrollo', 'desarrollosoporte975', 'ventas');
-$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '53'" ;
+$sql = "SELECT codigo, descripcion, rubro, sub_rubro FROM articulos WHERE habilitado = '1' and rubro = '1' and sub_rubro = '43'" ;
 $result = $baseTop->query($sql);
 $productos = array();
 while($resultado = $result->fetch_assoc()){
@@ -188,7 +191,7 @@ foreach ($productos as $codigo => &$producto) {
 print_r($productos);
 
 //guardar en archivo .txt
-$archivoDeSalida = "descripciones extendidas.txt";
+$archivoDeSalida = "descripcionesExtendidas.txt";
 $handleSalida = fopen($archivoDeSalida, "w");
 
 if ($handleSalida) {
