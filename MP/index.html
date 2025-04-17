@@ -42,6 +42,8 @@
             e.preventDefault();
 
             const formData = new FormData(form);
+            const dataToSend = Object.fromEntries(formData.entries());
+
             const response = await fetch('verificar.php', {
                 method: 'POST',
                 body: formData
@@ -50,7 +52,11 @@
             const data = await response.json();
 
             resultado.innerHTML = `
-                <strong>Resultado:</strong><br>
+                <strong>Datos ingresados:</strong><br>
+                <pre>${JSON.stringify(dataToSend, null, 2)}</pre>
+
+
+                <strong>Resultado del servidor:</strong><br>
                 <pre>${JSON.stringify(data, null, 2)}</pre>
             `;
         });

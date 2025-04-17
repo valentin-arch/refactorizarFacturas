@@ -70,15 +70,4 @@ function procesarSolicitud(array $datos): array {
 
 echo json_encode(procesarSolicitud($_POST));
 
-$datos = [
-    'sucursal' => 25,
-    'caja' => 479,
-    'fecha' => "25-03-2025",
-    'horaDesde' => "16:00",
-    'horaHasta' => "17:00"
-];
-
-$resultado = procesarSolicitud($datos);
-print_r($resultado);
-
 ?>
